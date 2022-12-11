@@ -1,0 +1,71 @@
+<div class="contentContainer">
+  <p>
+    <mat-toolbar class="toolbarContainer">
+      <!--Menu Button-->
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon
+          ><span class="material-symbols-rounded"> menu </span></mat-icon
+        >
+      </button>
+      <mat-menu #menu="matMenu">
+        <!--Home Button inside the dropdown menu-->
+        <a class="menuItem" mat-menu-item routerLink="home">
+          <mat-icon class="material-symbols-rounded">home</mat-icon>
+          <span>Home</span>
+        </a>
+        <!--Products Button-->
+        <a mat-menu-item routerLink="products">
+          <mat-icon>store</mat-icon>
+          <span>Products</span>
+        </a>
+        <!--About Button-->
+        <a mat-menu-item routerLink="about">
+          <mat-icon>info</mat-icon>
+          <span>About</span>
+        </a>
+        <!--Contact Button-->
+        <a mat-menu-item routerLink="contact">
+          <mat-icon>call</mat-icon>
+          <span>Contact</span>
+        </a>
+        <!--User Profile-->
+        <a *ngIf="authService.userData as user" mat-menu-item routerLink="dashboard">
+          <mat-icon>account_circle</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <!--Cart Button-->
+        <a mat-menu-item routerLink="displaycart">
+          <mat-icon>list</mat-icon>
+          <span>Wish List Products</span>
+        </a>
+        <!--Cart Button-->
+        <a mat-menu-item routerLink="purchase">
+          <mat-icon>playlist_add_check</mat-icon>
+          <span>Wish List</span>
+        </a>
+        <!--Cart Button-->
+        <a *ngIf="authService.userData as user" mat-menu-item routerLink="cart">
+          <mat-icon>shopping_bag</mat-icon>
+          <span>Cart</span>
+        </a>
+      </mat-menu>
+      <span class="spacer"></span>
+
+      <span> <a class="title" href="home"> Art Store App </a></span>
+      <span class="spacer"></span>
+      <div>
+        <button mat-icon-button routerLink="signin">
+          <mat-icon>login</mat-icon>
+        </button>
+        <button *ngIf="authService.userData as user" mat-icon-button routerLink="cart" title="Items">
+          <mat-icon>shopping_bag</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+  </p>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,26 @@
+<mat-card
+  fxLayout="row"
+  fxLayoutAlign="space-around center"
+  class="product-card"
+  *ngIf="product"
+>
+  <a
+    [title]="product.name + ' details'"
+    [routerLink]="['/products', product.id, product.name]"
+  >
+    <img
+      class="product-card-image"
+      mat-card-image
+      src="{{ product.pictureUrl }}"
+    />
+    <mat-card-content class="product-description">
+      {{ product.name.substring(0, 100) }}
+    </mat-card-content>
+    <mat-card-content class="product-rate">
+      Rate: {{ product.rate }}/5
+    </mat-card-content>
+    <mat-card-content class="product-price">
+      Price: ${{ product.price }}
+    </mat-card-content>
+  </a>
+</mat-card>

@@ -1,0 +1,9 @@
+<div class="product-card" *ngIf="CartItems">
+  <H2>Limited Edition Items</H2>
+  <h3>{{ CartItems.productName }}</h3>
+  <h3>{{ CartItems.productId }}</h3>
+  <img src={{CartItems.productUrl}}
+  alt="Image of paint brush">
+  <br>
+  <b>{{CartItems.productDescription}}</b>
+</div>

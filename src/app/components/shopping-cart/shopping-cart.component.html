@@ -1,0 +1,68 @@
+<div class="cartItemContainer">
+    <div class="row">
+      <div class="small-12 columns">
+        <h3>
+          <i class="material-icons">shopping_cart</i>
+          Your Shopping Cart
+        </h3>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="small-12 columns">
+        <h4>You have {{ itemsTotal }} different items in your cart</h4>
+        <h4>
+          Sub Total ({{ itemCount }} items):
+          <span class="text--red text--bold js-cart-total">
+            {{ grossTotal | currency: 'CAD':true }}</span
+          >
+        </h4>
+      </div>
+    </div>
+    <div class="row" *ngFor="let product of cartItems">
+      <mat-card class="product-card" *ngIf="product">
+        <a
+          [title]="product.name + ' details'"
+          [routerLink]="['/products', product.id, product.name]"
+        >
+          <img
+            class="product-card-image"
+            mat-card-image
+            src="{{ product.pictureUrl }}"
+          />
+          <mat-card-content class="product-description">
+            {{ product.name.substring(0, 100) }}
+          </mat-card-content>
+          <mat-card-content class="product-price">
+            {{ product.price * product.quantity | currency: 'CAD':true }}
+          </mat-card-content>
+        </a>
+      </mat-card>
+    </div>
+    <br />
+    <div class="row">
+      <div class="small-12 columns">
+        <button
+          type="button"
+          class="success button large expanded"
+          [attr.disabled]="itemCount === 0 ? true : null"
+          routerLink="/checkout"
+        >
+          Proceed To Checkout
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <button
+          type="button"
+          class="secondary button small expanded js-btn-empty-cart"
+          (click)="emptyCart()"
+          [attr.disabled]="itemCount === 0 ? true : null"
+        >
+          Empty shopping cart
+        </button>
+      </div>
+    </div>
+  </div>
+  

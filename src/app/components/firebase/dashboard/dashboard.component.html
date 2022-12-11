@@ -1,0 +1,18 @@
+<div class="container" *ngIf="authService.userData as user">
+  <div class="content">
+    <div class="logo-container">
+      <img class="brand-logo" src="assets/artstorelogo.png" alt="brand Logo">
+    </div>
+    <div class="user-info">
+      <h1 class="h2">User Profile</h1>
+      <h3>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h3>
+      <p>User ID: <strong>{{user.uid}}</strong></p>
+      <p>Email: <strong>{{user.email}}</strong></p>
+      <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+    </div>
+    <div class="logout-container">
+      <!-- Calling SignOut() Api from AuthService -->
+      <span class="logout" (click)="authService.SignOut()">Log out</span>
+    </div>
+  </div>
+</div>

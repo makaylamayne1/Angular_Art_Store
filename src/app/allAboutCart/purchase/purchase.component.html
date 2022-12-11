@@ -1,0 +1,5 @@
+
+<div class="shoppingCart">
+    <product-list (productAdded)="addProductToCart($event)" [products]="productList"></product-list>
+    <wish-list [products]="cartProductList" (productRemoved)="removeProduct($event)"></wish-list>
+</div>
