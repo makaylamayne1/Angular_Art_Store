@@ -8,8 +8,8 @@ import { Observable, Subscription } from 'rxjs';
 import { Product } from '../models/product';
 import { CartItem } from '../models/cart-item';
 import { ShoppingCart } from '../models/shopping-cart';
-import { CartService } from '../services/cart.service';
-import { ProductsService } from '../services/products.service';
+import { CartService } from '../Services/cart.service';
+import { ProductsService } from '../Services/products.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
